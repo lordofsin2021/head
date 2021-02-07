@@ -1,13 +1,408 @@
 <!DOCTYPE html>
-<html>
+  <!-- Original credits: https://glenthpvs.tumblr.com/ephemeral -->
     <head>
-        <title>Rubyyy</title>
-        <link href="assets/css/rubyyy.css" rel="stylesheet">
+        <title>Sloom's xatspace</title>
+	 <link href="https://fonts.googleapis.com/css?family=Nunito|Philosopher|Work+Sans|Quicksand:500|Sen|Gotu|Libre+Franklin:300|Josefin+Sans:100|ABeeZee|Karla|Material+Icons" rel="stylesheet">
+        <style type="text/css">
+
+          @font-face { font-family: "consolas-alt"; src: url('https://dl.dropbox.com/s/xap6ylki7bf2vgw/consolas.ttf'); }
+
+          /*--------------------BASICS--------------------*/
+          body {
+              color:#888;
+              cursor:normal;
+              font-family:consolas-alt;
+              line-height:1.6em;
+              font-size:12px;
+              text-align:left;
+          }
+
+          a, svg {
+              text-decoration:none;
+              -webkit-transition: all 0.4s ease-in-out;
+              -moz-transition: all 0.4s ease-in-out;
+              -o-transition: all 0.4s ease-in-out;
+          }
+
+          a[title]:not([href]):hover {cursor:help;}
+
+          #horizontal-a {
+             position:fixed;
+             top:0;left:0;right:0;
+             margin:0 auto;
+             height:100vh;
+             text-align:center;
+             z-index:-1;
+          }
+
+          #horizontal-b {
+             display:inline-block;
+          }
+
+          #vertical-a {
+             height:100vh;
+             display:table;
+          }
+
+          #vertical-b {
+             display:table-cell;
+             vertical-align:middle;
+          } 
+
+          #thesearenotmymusclesbutiwillflexit {
+             display:flex;
+             align-items:center;
+          }
+
+          /*--------------CUSTOMIZATION OPTIONS--------------*/
+          :root {
+              --Sidebar-Image-Width:100px;
+              --Sidebar-Image-Height:110px;
+              --Sidebar-Image-Background-Color:#8b8b8b;
+              --Sidebar-Image-Border-Size:4px;
+              --Sidebar-Image-Border-Color:#fffffd;
+              --Sidebar-Image-Bottom-Gap:21px;
+
+              --SB-Links-Symbol-Size:9px;
+              --SB-Links-Symbol-Background:#1d1d1d;
+              --SB-Links-Symbol-Padding:6px;
+              --SB-Links-Symbol:#ccc;
+              --SB-Links-Symbol-Right-Gap:11px;
+              --SB-Links-Font-Size:9px;
+              --SB-Links-Text-Color:#ccc;
+
+              --SB-Links-Symbol-Background-On-Hover:#dec171;
+              --SB-Links-Symbol-On-Hover:#000;
+              --SB-Links-Text-On-Hover:#dec171;
+              --SB-Links-Spacing:12px;
+
+              --Sidebar-Right-Margin:50px;
+
+              --Main-Title-Font-Size:18px;
+              --Main-Title-Color:#bbb;
+              --Main-Title-Bottom-Gap:17px;
+
+              --Main-Text-Width:300px;
+              --Main-Text-Line-Height:1.8em;
+              --Main-Text-Bottom-Gap:17px;
+
+              --Main-Text-Color:#a5a5a5;
+              --Main-Text-Font-Size:12px;
+
+              --Info-Bullets-Size:4px;
+              --Info-Bullets:#dec171;
+              --Info-Bullets-Glow:#ffe6a2;
+              --Info-Bullets-Spacing:10px;
+              --Info-Bullets-Label:#dec171;
+              --Info-Bullets-Label-Font-Size:9px;
+              --Info-Bullets-Label-Right-Gap:4px;
+
+              --Brackets-Top-Gap:19px;
+              --Brackets-Size:64px;
+              --Brackets-Color:#636363;
+              --Brackets-Text:#696969;
+              --Brackets-Text-Margin:12px;
+
+              --BG-On-Highlight:#ffe6a2;
+              --Text-On-Highlight:#fff;
+
+              --Tooltips-BG:#1d1d1d;
+              --Tooltips-Text:#ccc;
+
+              --Credit-Color:#999;
+              --Credit-Color-On-Hover:#dec171;
+
+              /*---- MUSIC PLAYER ----*/
+              --Circle-Size:32px;
+              --Progress-Border-Size:1.5px;
+              --Progress-Empty:#090909;
+              --Progress-Fill:#dec171;
+              --Player-Background:#1d1d1d;
+              --Play-Pause-Buttons-Size:12px;
+              --Play-Pause-Buttons-Color:#dec171;
+              --Player-Text-Margin:13px;
+
+              --Song-Name-Font-Size:8.5px;
+              --Song-Name-Color:#dec171;
+
+              --Artist-Name-Font-Size:9.5px;
+              --Artist-Name-Color:#bbb;
+          }
+
+          body {
+              background:#090909 url(''); /* background color & image, if u want one */
+              background-attachment:fixed;
+              background-repeat:repeat;
+          }
+
+          .sb {
+              width:calc(var(--Sidebar-Image-Width) + (var(--Sidebar-Image-Border-Size) * 2));
+          }
+
+          .sb-frame {
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              width:calc(var(--Sidebar-Image-Width) + (var(--Sidebar-Image-Border-Size) * 2));
+              height:calc(var(--Sidebar-Image-Height) + (var(--Sidebar-Image-Border-Size) * 2));
+              background:var(--Sidebar-Image-Border-Color);
+              clip-path:polygon(7% 0, 0 89%, 37% 86%, 38% 100%, 52% 86%, 94% 82%, 100% 6%);
+          }
+
+          .sb-ico {
+              width:var(--Sidebar-Image-Width);
+              height:var(--Sidebar-Image-Height);
+              background-color:var(--Sidebar-Image-Background-Color);
+              background-image:url(https://i.imgur.com/GkPwXpl.jpg);
+              background-size:cover;
+              background-position:center;
+              clip-path:polygon(7% 0, 0 89%, 37% 86%, 38% 100%, 52% 86%, 94% 82%, 100% 6%);
+          }
+
+          .sb-links {
+              margin-top:var(--Sidebar-Image-Bottom-Gap);
+          }
+
+          .one-link {
+              display:flex;
+              align-items:center;
+              padding-bottom:var(--SB-Links-Spacing);
+          }
+
+          .one-link:last-of-type {
+              padding-bottom:0;
+          }
+
+          .one-link svg {
+              margin-right:var(--SB-Links-Symbol-Right-Gap);
+              width:var(--SB-Links-Symbol-Size);
+              height:var(--SB-Links-Symbol-Size);
+              background:var(--SB-Links-Symbol-Background);
+              padding:var(--SB-Links-Symbol-Padding);
+              border-radius:3px;
+              color:var(--SB-Links-Symbol);
+          }
+
+          .one-link:hover svg {
+              background:var(--SB-Links-Symbol-Background-On-Hover);
+              color:var(--SB-Links-Symbol-On-Hover);
+          }
+
+          .one-link span {
+              font-family:sen;
+              font-size:var(--SB-Links-Font-Size);
+              text-transform:uppercase;
+              letter-spacing:.5px;
+              color:var(--SB-Links-Text-Color);
+          }
+
+          .one-link:hover span {
+              color:var(--SB-Links-Text-On-Hover);
+          }
+
+          /*-------MAIN CONTENT [RIGHT]-------*/
+          .maaain {
+              margin-left:var(--Sidebar-Right-Margin);
+              width:var(--Main-Text-Width);
+              font-family:sen;
+              font-size:var(--Main-Text-Font-Size);
+              color:var(--Main-Text-Color);
+              text-align:left;
+              line-height:var(--Main-Text-Line-Height);
+          }
+
+          .main-title {
+              margin-bottom:var(--Main-Title-Bottom-Gap);
+              font-family:gotu;
+              font-size:var(--Main-Title-Font-Size);
+              text-transform:uppercase;
+              letter-spacing:.5px;
+              color:var(--Main-Title-Color);
+          }
+
+          .about-text {
+          }
+
+          .bullets {
+              margin-top:var(--Main-Text-Bottom-Gap);
+              margin-left:calc(var(--Info-Bullets-Size) + (var(--Info-Bullets-Spacing) * 2));
+          }
+
+          .bullets li {
+              display:flex;
+              align-items:center;
+              list-style-type:none;
+          }
+
+          .bullets li:before {
+              content:"";
+              position:absolute;
+              display:flex;
+              margin-left:calc((var(--Info-Bullets-Size) + var(--Info-Bullets-Spacing)) * -1);
+              width:var(--Info-Bullets-Size);
+              height:var(--Info-Bullets-Size);
+              background:var(--Info-Bullets);
+              box-shadow:0px 0px 3px var(--Info-Bullets-Glow);
+              border-radius:100%;
+          }
+
+          .bullets label {
+              margin-right:var(--Info-Bullets-Label-Right-Gap);
+              font-size:var(--Info-Bullets-Label-Font-Size);
+              text-transform:uppercase;
+              letter-spacing:.5px;
+              color:var(--Info-Bullets-Label);
+          }
+
+          .bullets span {
+              margin-top:-1px;
+          }
+
+          .in-brackets {
+              display:flex;
+              align-items:center;
+              justify-content:space-between;
+              margin-top:var(--Brackets-Top-Gap);
+          }
+
+          .brck {
+              margin-bottom:-8px;
+              font-family:josefin sans;
+              font-size:var(--Brackets-Size);
+              color:var(--Brackets-Color);
+              line-height:1em;
+              user-select:none;
+          }
+
+          .brackets-text {
+              padding:0 var(--Brackets-Text-Margin);
+              font-style:italic;
+              color:var(--Brackets-Text);
+          }
+		  
+		  div#noowayfixed {
+			z-index: 2147483647;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+		}
+		div#noowaymenu
+		{
+			background-color:#009;
+			background: linear-gradient(#000014, #000024, #00004e);
+			border-radius: 0px 5px 0px 0px;
+			display: none;
+			border-radius: 10px;
+			border: 1px solid #c6c3c6;
+			font-family: sen;
+			font-size: var(--SB-Links-Font-Size);
+		}
+		div#noowayitems
+		{
+		    padding-top: 13px;
+		    padding-right: 2px;
+		    margin-bottom: 33px;
+		    padding-left: 0px;
+		    margin-left: 9px;
+		    line-height: 130%;
+		    color: #fff;
+		}
+		div#noowayitems > a
+		{
+			color:#fff;
+			text-decoration: none;
+			padding-left: 7px;
+    			margin-bottom: -3px!important;
+		}
+
+          </style>
     </head>
     <body>
-        <div class="outer-ring center"></div>
-        <div class="inner-ring center"></div>
-        <div id="text">Rubyyy</div>
+        <div id="horizontal-a">
+           <div id="horizontal-b">
+              <div id="vertical-a">
+                 <div id="vertical-b">
+                    <div id="thesearenotmymusclesbutiwillflexit">
+                       <div class="sb">
+                          <div class="sb-frame">
+                             <div class="sb-ico"></div>
+                          </div>
+                          <div class="sb-links">
+                             <a class="one-link" href="https://illuxat.com/">
+                                <span>Illuxat</span>
+                             </a>
+                             <a class="one-link" href="https://github.com/xSlOom">
+                                <span>Github</span>
+                             </a>
+                             <a class="one-link" href="https://FEXBots.com">
+                                <span>FEXBots</span>
+                             </a>
+                             <a class="one-link" href="https://forum.xat.com/profile/3356/">
+                                <span>Forum</span>
+                             </a>
+                          </div>
+                          <!--end sb links-->
+                       </div>
+                       <!--end sidebar-->
+                       <div class="maaain">
+                          <div class="main-title">SLOom (110110)</div>
+                          <div class="about-text">I'm on xat since 2007, and I'm currently FEXBots Translator/Chief Assistant. Oh! I'm also a main owner on HTML5.</div>
+                          <div class="bullets">
+                          <li>
+                                <label>Name:</label>
+                                <span>Clément</span>
+                             </li>
+                             <li>
+                                <label>From:</label>
+                                <span>France</span>
+                             </li>
+                             <li>
+                                <label>Age:</label>
+                                <span>23 years old</span>
+                             </li>
+                          </div>
+                          <!--end bullets-->
+                          <div class="in-brackets">
+                             <div class="brck">(</div>
+                             <div class="brackets-text">The pleasure which we most rarely experience gives us greatest delight.</div>
+                             <div class="brck">)</div>
+                          </div>
+                       </div>
+                       <!--end main-->
+                    </div>
+                    <!--end mainflex-->
+                 </div>
+                 <!---->
+              </div>
+           </div>
+        </div>
+        <div onmouseover="showMenu(this)" onmouseout="hideMenu(this)" id="noowayfixed">
+        	<img id="noowayplanet" src="//xat.com/images/logow2.svg">
+		<div id="noowaymenu">
+			<div id="noowayitems" class="sb-link">
+				<a class="one-link" href="//xat.com"><img src="//xat.com/images/logow.svg"></a>
+				<a class="one-link" href="//xat.com/web_gear/chat/editprofile.php?email=SLOom"><span>Edit</span></A>
+				<A class="one-link" href="//xat.com/wiki"><span>Wiki (help)</span></A>
+				<A class="one-link" href="//forum.xat.com/"><span>Forum</span></A>
+				<A class="one-link" href="//xat.com/privacy.html"><span>Privacy</span></A>
+				<A class="one-link" href="//xat.com/terms.html"><span>Terms</span></A>
+				<A class="one-link" href="//xat.com/safety.html"><span>Safety</span></A>
+				<A class="one-link" href="//xat.com/report#!user&UserName=SLOom&id=110110"><span>Inappropriate&#x1F44E;</span></A>
+				<a href="https://xat.com/" class="one-link"><span">©2020 xat</span></a>
+
+			</div>
+		</div>
+		</div>
+		<script>
+		function showMenu(x) {
+			document.getElementById("noowaymenu").style.display = "block";
+			document.getElementById("noowayplanet").style.display = "none";
+		}
+
+		function hideMenu(x) {
+			document.getElementById("noowaymenu").style.display = "none";
+			document.getElementById("noowayplanet").style.display = "block";
+		}
+		</script>
     </body>
-    <!--<script src="assets/js/rubyyy.js"></script>-->
 </html>
